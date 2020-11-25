@@ -52,7 +52,20 @@ class TaskListViewController: UITableViewController {
             action: #selector(addNewTask)
         )
         
+        // Add EditButton
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
+                                                           target: self,
+                                                           action: #selector(editTask))
+        
         navigationController?.navigationBar.tintColor = .white
+    }
+    
+    @objc private func editTask() {
+        guard let currentRow = tableView.indexPathForSelectedRow else { return }
+        let object = tasks[currentRow.row]
+        showAlertEditionText(withTitle: "Warning",
+                                  andMessage: "Edit text and save it.",
+                                  objectToEdit: object)
     }
     
     @objc private func addNewTask() {
