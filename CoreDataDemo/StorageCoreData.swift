@@ -13,8 +13,7 @@ class StorageCoreData {
     static let shared = StorageCoreData()
     
     private init() {}
-    
-    
+        
     // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "CoreDataDemo")
